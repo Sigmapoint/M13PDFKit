@@ -453,6 +453,10 @@
     self.document.currentPage = page;
     [self.pageScrubber updateScrubber];
     [self resetNavigationToolbar];
+    
+    if (_delegate) {
+        [_delegate PDFKBasicPDFViewer:self didDisplayPage:page];
+    }
 }
 
 - (void)nextPage
